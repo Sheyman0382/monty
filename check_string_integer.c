@@ -13,6 +13,8 @@ int string_integer(char *str_int)
 
 	if (str_int[0] == '+' || str_int[0] == '-')
 		count++;
+	if (str_int[count] == '\0')
+		return (0);
 	while (str_int[count] != '\0')
 	{
 		if (str_int[count] >= '0' && str_int[count] <= '9')
