@@ -22,7 +22,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 	opcode = strtok(line, " \n\t");
 	argument = strtok(NULL, " \n\t");
 
-	if (opcode == NULL || opcode[0] == '#')
+	if (opcode[0] == '\0' || opcode[0] == '#')
 		return;
 
 	i = 0;
