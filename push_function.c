@@ -18,8 +18,13 @@ void push_wrapper(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	value = string_integer(argument);
+	if (value == 0)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	value = atoi(argument);
-
 	push(stack, line_number, value);
 }
 
