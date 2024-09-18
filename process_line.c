@@ -4,7 +4,7 @@
  * process_line - the function hadles how lines are tokenized
  * and functions called.
  * @line: the line to be executed
- * @stake: the stake in which data are pushed or modified
+ * @stack: the stake in which data are pushed or modified
  * @line_number: the number line for bytecode
  * Return: return nothing
  */
