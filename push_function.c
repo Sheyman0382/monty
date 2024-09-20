@@ -13,18 +13,23 @@ void push_wrapper(stack_t **stack, unsigned int line_number)
 {
 	int value;
 
-	if (argument == NULL)
+	if (ready_made.argument == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fclose(ready_made.file);
+		free(ready_made.buffer);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	value = string_integer(argument);
+	value = string_integer(ready_made.argument);
 	if (value == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fclose(ready_made.file);
+		free(ready_made.buffer);
 		exit(EXIT_FAILURE);
 	}
-	value = atoi(argument);
+	value = atoi(ready_made.argument);
 	push(stack, line_number, value);
 }
 
@@ -45,6 +50,8 @@ void push(stack_t **stack, unsigned int line_number, int value)
 	if (newnode == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		fclose(ready_made.file);
+		free(ready_made.buffer);
 		exit(EXIT_FAILURE);
 	}
 	newnode->n = value;

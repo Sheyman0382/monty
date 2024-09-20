@@ -22,7 +22,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 	};
 
 	opcode = strtok(line, " \n\t");
-	argument = strtok(NULL, " \n\t");
+	ready_made.argument = strtok(NULL, " \n\t");
 
 	if (opcode[0] == '\0' || opcode[0] == '#' || opcode == NULL)
 		return;
@@ -40,5 +40,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 	}
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+	free(ready_made.buffer);
+	fclose(ready_made.file);
 	exit(EXIT_FAILURE);
 }

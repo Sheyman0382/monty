@@ -13,6 +13,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d:can't pint, stack empty", line_number);
+		fclose(ready_made.file);
+		free(ready_made.buffer);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -33,6 +35,8 @@ void pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d:can't pop an stack empty", line_number);
+		fclose(ready_made.file);
+		free(ready_made.buffer);
 		exit(EXIT_FAILURE);
 	}
 	*stack = temp->next;

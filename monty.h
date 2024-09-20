@@ -6,8 +6,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern char *argument;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -19,9 +17,9 @@ extern char *argument;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -34,9 +32,30 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct madeready_s - conveyor for all global variables
+ * @argument: parameters to be pushed or removed from
+ * stack
+ * @file: monty file
+ * @buffer: each lines of the monty file
+ * @stack: pointer to the stack in memory
+ * Description: conveys all the above to any file or function
+ * that needs them.
+ */
+
+typedef struct madeready_s
+{
+	char *argument;
+	FILE *file;
+	char *buffer;
+	stack_t *stack;
+} madeready_t;
+
+extern madeready_t ready_made;
 
 void push(stack_t **stack, unsigned int line_number, int value);
 void push_wrapper(stack_t **stack, unsigned int line_number);
