@@ -34,12 +34,13 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		fclose(ready_made.file);
 		free(ready_made.buffer);
 		exit(EXIT_FAILURE);
 	}
 	*stack = temp->next;
-	(*stack)->prev = NULL;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
 	free(temp);
 }
