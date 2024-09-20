@@ -18,6 +18,10 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pop", pop},
 		{"pint", pint},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
