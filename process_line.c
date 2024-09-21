@@ -22,6 +22,9 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"_div", _div},
+		{"mod", mod},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 
