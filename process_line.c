@@ -25,6 +25,7 @@ void process_line(char *line, stack_t **stack, unsigned int line_number)
 		{"div", _div},
 		{"mod", mod},
 		{"mul", mul},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 

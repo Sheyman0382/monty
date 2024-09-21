@@ -1,10 +1,8 @@
-push 1
-pint
-push 2
-pint
-push 3
-pint
-add
-pall
-sub
-pall
+push 72
+push 75
+push 33
+pchar
+pop
+pchar
+pop
+pchar

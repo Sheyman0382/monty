@@ -72,4 +72,5 @@ void mod(stack_t **stack, unsigned int line_number);
 void process_line(char *line, stack_t **stack, unsigned int line_number);
 int string_integer(char *str_int);
 void free_stack(stack_t **stack);
+void pchar(stack_t **stack, unsigned int line_number);
 #endif
