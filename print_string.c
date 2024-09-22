@@ -10,30 +10,18 @@
 
 void pstr(stack_t **stack, unsigned int line_number)
 {
-	unsigned int count = 0;
-	char character;
-	stack_t *temp = *stack;
-	char *str = malloc(sizeof(char) * 2);
+	stack_t *temp;
 	(void)line_number;
 
-	if (str == NULL)
-		return;
-	while (temp != NULL && temp->n > 0 && temp->n <= 127)
+	temp = *stack;
+	while (temp)
 	{
-		char *new_str = _realloc(str, count,  (count + 2));
-
-		if (new_str == NULL)
+		if (temp->n > 127 || temp->n <= 0)
 		{
-			free(str);
-			return;
+			break;
 		}
-		str = new_str;
-		character = (char)temp->n;
-		str[count] = character;
-		count++;
+		printf("%c", temp->n);
 		temp = temp->next;
 	}
-	str[count] = '\0';
-	printf("%s\n", str);
-	free(str);
+	printf("\n");
 }
